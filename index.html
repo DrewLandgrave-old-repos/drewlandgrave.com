@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script type="text/javascript" src="bower_components/polymer/bower_components/platform/platform.js"></script>
+    <link rel="import" href="bower_components/polymer/bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/polymer/bower_components/core-elements/core-elements.html"/>
+    <link rel="import" href="bower_components/polymer/bower_components/paper-tabs/paper-tabs.html">
+    <style>
+                html, body {
+                    height: 100%;
+                    margin: 0;
+                    background-color: #E5E5E5;
+                    font-family: 'RobotoDraft', sans-serif;
+                }
+
+                core-header-panel {
+                    height: 100%;
+                    overflow: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                core-toolbar {
+                    background: #03a9f4;
+                    color: white;
+                }
+
+                paper-tabs {
+                    width: 100%;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+
+                .container {
+                    width: 80%;
+                    margin: 50px auto;
+                }
+
+                @media (min-width: 481px) {
+                    paper-tabs {
+                        width: 200px;
+                    }
+
+                    .container {
+                        width: 400px;
+                    }
+                }
+
+                core-icon-button {
+                   position: absolute;
+                   top: 3px;
+                   right: 3px;
+                   fill: #636363;
+                 }
+                 :host([favorite]) core-icon-button {
+                   fill: #da4336;
+                 }
+
+            </style>
+</head>
+<body unresolved touch-action="auto">
+
+    <core-header-panel>
+        <core-toolbar>
+            <paper-tabs selected="home" valueattr="name" self-end>
+                <paper-tab name="home"><core-icon icon="home"></core-icon> Home</paper-tab>
+                <paper-tab name="about"><core-icon icon="social:person"></core-icon> About</paper-tab>
+            </paper-tabs>
+        </core-toolbar>
+    </core-header-panel>
+</body>
+</html>
