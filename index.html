@@ -5,70 +5,129 @@
     <script type="text/javascript" src="bower_components/polymer/bower_components/platform/platform.js"></script>
     <link rel="import" href="bower_components/polymer/bower_components/font-roboto/roboto.html">
     <link rel="import" href="bower_components/polymer/bower_components/core-elements/core-elements.html"/>
+    <link rel="import" href="bower_components/polymer/bower_components/core-icons/core-icons.html"/>
     <link rel="import" href="bower_components/polymer/bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/polymer/custom_elements/post-card/post-card.html"/>
+    <link rel="import" href="bower_components/polymer/bower_components/paper-item/paper-item.html"/>
+    <link rel="import" href="bower_components/polymer/bower_components/paper-menu-button/paper-menu-button.html"/>
+    <link rel="import" href="bower_components/polymer/bower_components/paper-shadow/paper-shadow.html"/>
+    <link rel="import" href="bower_components/polymer/bower_components/core-icons/iconsets/social-icons.html"/>
+    <link rel="import" href="bower_components/polymer/bower_components/google-apis/google-apis.html"/>
+
+
     <style>
-                html, body {
-                    height: 100%;
-                    margin: 0;
-                    background-color: #E5E5E5;
-                    font-family: 'RobotoDraft', sans-serif;
-                }
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #E5E5E5;
+            font-family: 'RobotoDraft', sans-serif;
+        }
 
-                core-header-panel {
-                    height: 100%;
-                    overflow: auto;
-                    -webkit-overflow-scrolling: touch;
-                }
+        core-header-panel {
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
 
-                core-toolbar {
-                    background: #03a9f4;
-                    color: white;
-                }
+        core-toolbar {
+            background: #03a9f4;
+            color: white;
+        }
 
-                paper-tabs {
-                    width: 100%;
-                    -webkit-user-select: none;
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                    user-select: none;
-                }
+        paper-tabs {
+            width: 100%;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-                .container {
-                    width: 80%;
-                    margin: 50px auto;
-                }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+        }
 
-                @media (min-width: 481px) {
-                    paper-tabs {
-                        width: 200px;
-                    }
+        /*@media (min-width: 481px) {*/
+            /*paper-tabs {*/
+                /*width: 200px;*/
+            /*}*/
 
-                    .container {
-                        width: 400px;
-                    }
-                }
+            /*.container {*/
+                /*width: 400px;*/
+            /*}*/
+        /*}*/
 
-                core-icon-button {
-                   position: absolute;
-                   top: 3px;
-                   right: 3px;
-                   fill: #636363;
-                 }
-                 :host([favorite]) core-icon-button {
-                   fill: #da4336;
-                 }
+        core-icon-button {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            fill: #636363;
+        }
 
-            </style>
+        :host([favorite]) core-icon-button {
+            fill: #da4336;
+        }
+
+        core-menu-button ripple {
+
+        }
+
+
+    </style>
 </head>
 <body unresolved touch-action="auto">
 
-    <core-header-panel>
-        <core-toolbar>
-            <paper-tabs selected="home" valueattr="name" self-end>
-                <paper-tab name="home"><core-icon icon="home"></core-icon> Home</paper-tab>
-                <paper-tab name="about"><core-icon icon="social:person"></core-icon> About</paper-tab>
+    <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
+        <core-toolbar id="core_toolbar">
+            <paper-tabs>
+                <paper-tab data-tab="homeContainer" layout horizontal flex>
+                    <core-icon icon="home"></core-icon>
+                    Home
+                </paper-tab>
+                <paper-tab data-tab="aboutContainer" layout horizontal flex>
+                    <core-icon icon="account-circle"></core-icon>
+                    About
+                </paper-tab>
+                <paper-tab data-tab="polymerContainer" layout horizontal flex>
+                    <core-icon icon="polymer"></core-icon>
+                    Polymer Examples
+                </paper-tab>
+
             </paper-tabs>
+            <div flex></div>
+            <core-menu-button icon="more-vert" halign="right" tabindex="0">
+                <a href="https://plus.google.com/+DrewLandgrave" target="_blank">
+                    <paper-item icon="google-plus" center horizontal layout class="core-selected" style="opacity: 1;">Google Plus</paper-item>
+                </a>
+            </core-menu-button>
+
+
         </core-toolbar>
+
+        <div class="tabContent" id="homeContainer" layout vertical>
+            <post-card id="home_card">
+                <h2>Hey!</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequatur dicta dolor dolorum ducimus earum eius et excepturi facilis fuga fugit hic iure maxime omnis qui quisquam, sit totam voluptas? A ad, blanditiis dignissimos dolores eaque excepturi fugiat in iure labore modi mollitia nam, omnis optio. Aperiam architecto aspernatur atque, blanditiis cupiditate dolor dolores eius enim est hic in, inventore iste laboriosam magni modi nulla officia, praesentium quam qui quia rerum sapiente suscipit tempora tenetur totam ullam voluptates. Accusantium, animi architecto, blanditiis delectus dignissimos doloremque eius exercitationem fugiat harum in inventore iure minima natus nulla numquam odio omnis perferendis quae quas quasi, quia quo quos repudiandae saepe tenetur! Facilis fuga nobis praesentium quam unde. Architecto beatae dicta laboriosam, molestias nemo quidem repudiandae. A accusamus amet animi assumenda at, deleniti dolore earum exercitationem fugit iure labore laborum magni maxime nemo nobis non nostrum nulla obcaecati, perferendis placeat porro provident quae quam quasi rem repellat tempora temporibus ullam ut voluptate. Aperiam asperiores dignissimos hic magni natus odio possimus sed sint sunt voluptatem. Accusantium atque deserunt dignissimos dolore dolorem doloremque ducimus excepturi harum, impedit itaque libero magnam minus, molestias necessitatibus provident quidem, repellat sint totam ut veritatis? Aliquam cupiditate explicabo iusto laboriosam, magnam molestiae nesciunt nihil nulla officiis quae quas quibusdam quod similique sunt ullam vel vero vitae! Earum error natus odit soluta veritatis? A ab alias deleniti et, ex iste, iusto magnam nam odit omnis optio quos recusandae saepe suscipit velit veniam voluptatem. Alias asperiores incidunt ipsam libero nam, nobis officia, possimus quasi quidem tenetur totam unde voluptas! Aliquid at dignissimos eius inventore minus, nostrum officia optio qui ullam veniam. Amet atque aut blanditiis commodi consectetur consequuntur cupiditate debitis, dolorem earum error, excepturi expedita explicabo harum in ipsam iste itaque iusto maxime, minus nulla officiis omnis pariatur perferendis placeat provident quae quam ratione rem repellat reprehenderit repudiandae rerum saepe sequi sint sit voluptates voluptatum! Accusamus architecto commodi officia perferendis qui quos ratione recusandae ut! Alias dolor, exercitationem laudantium natus nulla odio repellat repellendus tempore voluptatibus. At deserunt doloremque error hic illo itaque iusto nisi odit quos sint. A aliquid dicta dignissimos exercitationem ipsa ipsam molestias nisi, nostrum odit porro quisquam reiciendis saepe ullam vero voluptatibus. Aliquid beatae dolorem eaque, odio odit totam veniam. Autem dolor et explicabo, itaque odit quam quis quisquam rem reprehenderit sit? Accusantium delectus illo incidunt nam neque praesentium sequi voluptates! Accusantium delectus facere ipsum sit totam veritatis, vero.</p>
+            </post-card>
+        </div>
+        <div class="tabContent" id="aboutContainer" style="display:none" layout vertical>
+            <post-card id="about_card">
+                <h2>Hey!</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio fugiat, fugit itaque laboriosam molestias nam natus nisi nobis obcaecati reprehenderit velit voluptates, voluptatibus. Alias aliquid amet aperiam beatae consequuntur culpa cum ex excepturi expedita illo illum in inventore ipsum laboriosam libero maiores possimus praesentium provident quibusdam repellendus rerum saepe tenetur, ullam ut vitae voluptatibus voluptatum? A, accusantium deserunt laboriosam laborum laudantium magnam numquam optio quas quo sunt. Atque doloremque hic iure labore maiores, neque non odio quod similique veniam! Ab adipisci consequatur distinctio enim error non nostrum quis, reprehenderit! Accusantium adipisci, aliquid, cum dolorum eveniet facere fuga illo neque, non numquam odio officiis saepe similique ut veritatis. Alias assumenda cupiditate et fugiat similique, vitae! Ab accusamus ad blanditiis commodi consectetur consequatur consequuntur cumque dolores eaque error, esse est exercitationem facilis, harum id incidunt ipsa ipsum iste magni modi mollitia nemo nisi obcaecati omnis pariatur provident quam quas quibusdam quisquam quod repudiandae saepe suscipit, tempora! Aliquid aut blanditiis debitis, dicta explicabo ipsum iste necessitatibus nisi porro praesentium quos rem tempore temporibus unde vitae. Assumenda at autem cum dolorum ducimus eius labore nostrum rerum tempora voluptas. Aspernatur consequuntur, dicta doloremque dolores eligendi explicabo illum minima molestias porro, quidem quod, sed tenetur voluptas? Ab animi atque commodi cum debitis doloremque ducimus est eveniet exercitationem inventore magni maiores mollitia nemo neque nobis obcaecati officiis porro, quisquam recusandae repellat repudiandae, rerum sunt temporibus unde vitae! Alias earum et harum ipsam itaque nemo nesciunt nostrum possimus, quia ratione repudiandae, ullam ut voluptatibus. A, aliquam animi asperiores dolores facere fugit ipsam iste libero magnam mollitia repellat rerum sit soluta. Accusantium architecto autem deleniti dolor eos expedita necessitatibus? Ad aperiam consequuntur incidunt laboriosam nemo quam, totam voluptatem. Alias asperiores aspernatur consequatur culpa dolor dolore, est impedit in ipsam iure maxime nam non odit perferendis quia recusandae temporibus vel veniam vero vitae! A alias aliquam aliquid, amet animi architecto beatae blanditiis commodi culpa delectus distinctio dolorem dolorum ex expedita explicabo facere facilis fuga harum illum inventore ipsam iusto minima modi molestiae, molestias mollitia non officia perspiciatis provident quisquam quo repellendus reprehenderit tenetur totam vel veritatis voluptas. Consequuntur dolor impedit maxime nulla? Beatae culpa cum distinctio incidunt nihil perferendis quibusdam quis quo saepe velit! Aliquid animi aperiam, cum dolor labore laborum magni odio pariatur repellat repudiandae, sit soluta tempore, tenetur? Cum facilis nam neque odit quaerat? Impedit sed, sit? Blanditiis debitis dolor doloremque ducimus excepturi, labore, laudantium pariatur provident repellendus reprehenderit sapiente suscipit tempore! Aliquid ex exercitationem ipsa, obcaecati quidem quod! Atque beatae delectus ea ex hic itaque nostrum, odit quasi reiciendis sit! Atque debitis et, in nisi obcaecati porro qui! Ad asperiores delectus dicta et expedita explicabo fuga fugiat fugit illum impedit in magnam magni maiores necessitatibus, omnis optio qui quos saepe sapiente, similique sunt temporibus voluptates. Alias beatae dolores fuga, fugit hic impedit necessitatibus nihil praesentium quis quos rerum, soluta tempore, voluptatem? Exercitationem ipsa iste obcaecati pariatur! Ab aliquid culpa ea, earum enim est excepturi explicabo fugiat libero placeat possimus, quam, quidem quis reprehenderit sit vel voluptates? A, adipisci aliquam beatae blanditiis commodi, consectetur corporis dignissimos, doloremque dolores ducimus ex impedit inventore ipsum libero minus nulla possimus quaerat quam quos repellendus repudiandae suscipit tempore totam ullam voluptate? Accusamus doloremque, laudantium minus nulla tempore tenetur ullam veniam vitae? Blanditiis cupiditate deserunt dicta ea magnam nesciunt nihil nulla tempore tenetur! Asperiores, commodi consectetur corporis, dignissimos, esse impedit neque quasi qui quod recusandae sint suscipit tempora temporibus ullam vel velit vero vitae voluptatem. Aperiam commodi cupiditate dolorem, doloribus, et ex inventore magnam maxime nihil provident quasi, quidem quis quod repellendus suscipit temporibus totam. Deserunt eum ipsam maiores, minima quam vitae.</p>
+            </post-card>
+        </div>
+        <div class="tabContent" id="polymerContainer" style="display:none" layout vertical>
+            <post-card id="polymer_card">
+
+            </post-card>
+        </div>
     </core-header-panel>
+
+
+    <google-client-api></google-client-api>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
