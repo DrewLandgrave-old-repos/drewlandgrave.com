@@ -16,70 +16,7 @@
     <link rel="import" href="bower_components/polymer/custom_elements/social-buttons/social-row.html"/>
     <link rel="import" href="bower_components/polymer/custom_elements/post-card/post-card.html"/>
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            background-color: #E5E5E5;
-            font-family: 'RobotoDraft', sans-serif;
-        }
-
-        core-header-panel {
-            height: 100%;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        core-toolbar {
-            background: #03a9f4;
-            color: white;
-        }
-
-        paper-tabs {
-            width: 100%;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .container {
-            width: 80%;
-            margin: 50px auto;
-        }
-
-        @media (min-width: 481px) {
-
-            .container {
-                width: 400px;
-            }
-
-            /*post-card:hover {*/
-                /*-moz-transform: scale(1.2) rotate(0deg);*/
-                /*-webkit-transform: scale(1.2) rotate(0deg);*/
-                /*-o-transform: scale(1.2) rotate(0deg);*/
-                /*-ms-transform: scale(1.2) rotate(0deg);*/
-                /*transform: scale(1.2) rotate(0deg);*/
-            /*}*/
-        }
-
-        core-icon-button {
-            position: absolute;
-            top: 3px;
-            right: 3px;
-            fill: #636363;
-        }
-
-        :host([favorite]) core-icon-button {
-            fill: #da4336;
-        }
-
-        core-menu-button ripple {
-
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="css/dashboard.css"/>
 </head>
 <body unresolved touch-action="auto">
 
