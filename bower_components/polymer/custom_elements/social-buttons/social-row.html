@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="social-button-gplus.html"/>
+<link rel="import" href="social-button-facebook.html"/>
+<link rel="import" href="social-button-linkedin.html"/>
+<link rel="import" href="social-button-pinterest.html"/>
+<link rel="import" href="social-button-twitter.html"/>
+
+<polymer-element name="social-row" attributes="pinterestLink,facebookLink,twitterLink,linkedinLink,gplusLink">
+    <template>
+        <style>
+        </style>
+        <social-button-gplus link="{{gplusLink}}"></social-button-gplus>
+        <social-button-facebook link="{{facebookLink}}"></social-button-facebook>
+        <social-button-linkedin link="{{linkedinLink}}"></social-button-linkedin>
+        <social-button-pinterest link="{{pinterestLink}}"></social-button-pinterest>
+        <social-button-twitter link="{{twitterLink}}"></social-button-twitter>
+    </template>
+    <script>
+        Polymer('social-row', {});
+    </script>
+</polymer-element>
+
+
+
+
+

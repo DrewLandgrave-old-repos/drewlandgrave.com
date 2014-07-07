@@ -1,0 +1,49 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/google-apis/google-client-api.html"/>
+
+<polymer-element name="google-plus-info">
+    <template>
+
+        <google-client-api></google-client-api>
+    </template>
+    <script>
+        Polymer('google-plus-info', {
+
+            ready:       function () {
+                var that = this;
+                document.addEventListener('api-load', function () {
+                    var scopes = 'https://www.googleapis.com/auth/plus.me',
+                            clientId = '80663946874-pd1krqvnc42mdqkhofh2qm8027867kud.apps.googleusercontent.com',
+                            apiKey = 'AIzaSyBa-Ju2fu97FRZV88U9Vs6xUJVC-rXTUnQ';
+                    gapi.client.setApiKey(apiKey);
+                    gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, function (data) {
+                        console.log(data);
+                        that.makeApiCall();
+                    });
+
+                });
+            },
+            makeApiCall: function () {
+                gapi.client.load('plus', 'v1', function () {
+                    var request = gapi.client.plus.people.get({
+                        'userId': 'me'
+                    });
+                    request.execute(function (resp) {
+                        var heading = document.createElement('h4');
+                        var image = document.createElement('img');
+                        image.src = resp.image.url;
+                        heading.appendChild(image);
+                        heading.appendChild(document.createTextNode(resp.displayName));
+
+                        document.getElementById('content').appendChild(heading);
+                    });
+                });
+            }
+
+
+
+
+        });
+    </script>
+
+</polymer-element>

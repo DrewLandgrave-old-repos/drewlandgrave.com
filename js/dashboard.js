@@ -8,13 +8,7 @@ tabs.addEventListener('core-select', function () {
 
 });
 
-document.addEventListener('api-load', function(){
-    gapi.client.setApiKey('AIzaSyBa-Ju2fu97FRZV88U9Vs6xUJVC-rXTUnQ');
-    gapi.auth.authorize({clientId : '80663946874-pd1krqvnc42mdqkhofh2qm8027867kud.apps.googleusercontent.com', scopes:'https://www.googleapis.com/auth/plus.me'}, function(data){
-        console.log(data);
-    });
 
-});
 
 function switchTabs(list, elm) {
     list.not(elm).each(function () {

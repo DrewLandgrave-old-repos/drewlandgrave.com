@@ -1,4 +1,4 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html">
 
 <polymer-element name="post-card">
     <template>
@@ -8,14 +8,12 @@
                 position: relative;
                 background-color: white;
                 padding: 20px;
-                width: 100%;
                 font-size: 1.2rem;
                 font-weight: 300;
             }
 
             .card-header {
                 margin-bottom: 10px;
-
             }
 
             polyfill-next-selector {
@@ -49,21 +47,37 @@
                 fill: #da4336;
             }
 
-            polyfill-next-selector {
-                content: '.cardContent';
-            }
 
-            .cardContent {
-                margin-left: 20px;
-            }
         </style>
-        <div class="card-header" layout horizontal center>
-            <content select="img"></content>
-            <content select="h2"></content>
+        <div class="post-card">
+            <div class="card-header" layout horizontal center>
+                <content select="img"></content>
+                <content select="h2"></content>
+            </div>
+            <content></content>
         </div>
-        <content class="cardContent"></content>
     </template>
     <script>
-        Polymer('post-card', {});
+        Polymer('post-card', {
+            publish: {
+                inline:   false,
+                rotation: '0deg',
+                width: '100%'
+            },
+            ready:   function () {
+                var inline = this.getAttribute('inline'),
+                        rotation = this.getAttribute('rotation');
+                if (inline !== null && inline === 'true') {
+                    this.style.display = 'inline-block';
+                }
+                if (rotation !== null && rotation !== '') {
+                    this.style.webkitTransform = 'rotate('+rotation+')';
+                    this.style.mozTransform = 'rotate('+rotation+')';
+                    this.style.oTransform = 'rotate('+rotation+')';
+                    this.style.msTransform = 'rotate('+rotation+')';
+                    this.style.transform = 'rotate('+rotation+')';
+                }
+            }
+        });
     </script>
 </polymer-element>
