@@ -37,3 +37,5 @@ function slideDown(elm) {
     }, 150);
 
 }
+
+var myApp = angular.module('myApp',[]);

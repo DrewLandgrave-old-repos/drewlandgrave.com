@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html ng-app='myApp'>
 <head>
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
@@ -17,25 +17,16 @@
     <link rel="import" href="bower_components/polymer/custom_elements/post-card/post-card.html"/>
 
     <link rel="stylesheet" href="css/dashboard.css"/>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 </head>
 <body unresolved touch-action="auto">
-
     <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
         <core-toolbar id="core_toolbar">
-            <paper-tabs selected="0">
-                <paper-tab data-tab="homeContainer" layout horizontal flex>
-                    <core-icon icon="home"></core-icon>
-                    Home
+            <paper-tabs selected="0" ng-controller="NavController">
+                <paper-tab ng-repeat="nav in navs" data-tab="{{ nav.container }}" layout horizontal flex>
+                    <core-icon icon="{{ nav.icon }}"></core-icon>
+                    {{ nav.title }}
                 </paper-tab>
-                <paper-tab data-tab="aboutContainer" layout horizontal flex>
-                    <core-icon icon="account-circle"></core-icon>
-                    About
-                </paper-tab>
-                <paper-tab data-tab="polymerContainer" layout horizontal flex>
-                    <core-icon icon="polymer"></core-icon>
-                    Polymer Examples
-                </paper-tab>
-
             </paper-tabs>
             <div flex></div>
             <core-menu-button icon="more-vert" halign="right" tabindex="0">
@@ -91,5 +82,7 @@
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/dashboard.js"></script>
+    <script type="text/javascript" src="js/headerController.js"></script>
+
 </body>
 </html>
